@@ -4,3 +4,63 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+/*
+  Специально для тёмной темы при наличии класса,
+  здесь окажутся стили, которые нужно переопределить принудительно,
+  переключая тему
+*/
+:root.theme-light {
+    --main-font-family: Inter-Variable, sans-serif;
+    --second-font-family: PressStart2P-Regular, sans-serif;
+    --card-header-font-weight: 700;
+    --card-text-font-weight: 400;
+    --site-width: 1440;
+    --main-text-color: #000000;
+    --watermark-color: rgba(0, 0, 0, 0.5);
+    --watermark-stroke-color: rgba(255, 255, 255, 0.5);
+    --background-color: #ffffff;
+    --disabled-button-color: rgba(0, 0, 0, 0.6);
+    --background-gradient-line-color: #d3d3d3;
+    --background-gradient-from-color: #e7e7e7;
+    --background-gradient-to-color: #1a1a1a;
+    --border-color: var(--main-text-color);
+    --button-background-color: #ffffff;
+    --contour-heart-color: var(--main-text-color);
+    --main-heart-color: #FF0000;
+}
+
+:root.theme-dark {
+    --card-header-font-weight: 785;
+    --card-text-font-weight: 465;
+    --background-color: #000000;
+    --main-text-color: #00cc14;
+    --watermark-color: rgba(0, 204, 20, 0.5);
+    --watermark-stroke-color: rgba(0, 0, 0, 0.5);
+    --disabled-button-color: rgba(0, 204, 20, 0.6);
+    --background-gradient-line-color: #000000;
+    --background-gradient-from-color: #007f0c;
+    --background-gradient-to-color: #004306;
+    --border-color: var(--main-text-color);
+    --button-background-color: var(--main-text-color);
+    --contour-heart-color: var(--main-text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --card-header-font-weight: 785;
+        --card-text-font-weight: 465;
+        --background-color: #000000;
+        --main-text-color: #00cc14;
+        --watermark-color: rgba(0, 204, 20, 0.5);
+        --watermark-stroke-color: rgba(0, 0, 0, 0.5);
+        --disabled-button-color: rgba(0, 204, 20, 0.6);
+        --background-gradient-line-color: #000000;
+        --background-gradient-from-color: #007f0c;
+        --background-gradient-to-color: #004306;
+        --border-color: var(--main-text-color);
+        --button-background-color: var(--main-text-color);
+        --contour-heart-color: var(--main-text-color);
+    }
+}
+
+
