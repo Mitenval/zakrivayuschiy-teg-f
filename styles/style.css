@@ -17,18 +17,36 @@
 .page {
   padding-top: 100px;
   color: var(--main-text-color);
-  background:
-    repeating-linear-gradient(to right, var(--background-gradient-line-color), var(--background-gradient-line-color) 2px, transparent 2px, transparent 4px),
-    repeating-linear-gradient(to bottom, var(--background-gradient-line-color), var(--background-gradient-line-color) 2px, transparent 2px, transparent 4px),
-    linear-gradient(to bottom, var(--background-gradient-from-color), var(--background-gradient-to-color)) fixed;
+  background: repeating-linear-gradient(
+      to right,
+      var(--background-gradient-line-color),
+      var(--background-gradient-line-color) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--background-gradient-line-color),
+      var(--background-gradient-line-color) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(
+        to bottom,
+        var(--background-gradient-from-color),
+        var(--background-gradient-to-color)
+      )
+      fixed;
   min-block-size: 100dvb;
+}
+
+.site-block-width {
+
 }
 
 .hidden {
   display: none;
 }
-
-
 
 header,
 footer {
@@ -46,7 +64,7 @@ header {
   margin-bottom: 100px;
   background-color: var(--background-color);
   text-transform: uppercase;
-  font-family: var(--second-font-family)
+  font-family: var(--second-font-family);
 }
 
 p {
@@ -61,9 +79,9 @@ p:last-of-type {
 }
 
 h1 {
-  margin-top: 135px;
-  line-height: 43px;
-  font-size: 23px;
+  margin-top: clamp(7rem, 5.332rem + 7.099vw, 8.438rem);
+  line-height: clamp(2.063rem, 1.337rem + 3.086vw, 2.688rem);
+  font-size: clamp(0.875rem, 0.2222rem + 2.7778vw, 1.4375rem);
 }
 
 .large {
@@ -148,7 +166,7 @@ button {
 }
 
 .card {
-  margin-bottom: 50px;
+  margin-bottom: 48px;
 }
 
 .style-button {
@@ -217,23 +235,28 @@ button {
 }
 
 .card__label {
-  -webkit-text-stroke: 0.5px var(--watermark-stroke-color);
+  position: absolute;
+  text-transform: uppercase;
   top: 25px;
   right: 25px;
-  color: var(--watermark-color);
-  position: absolute;
-  font-family: var(--second-font-family);
   font-size: 14px;
   line-height: 14px;
-  text-transform: uppercase;
+  color: var(--watermark-color);
+  font-family: var(--second-font-family);
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+}
+
+@supports (-webkit-text-stroke: 1px var(--watermark-stroke-color)) {
+  .card__label {
+    -webkit-text-stroke: 1px var(--watermark-stroke-color);
+    text-shadow: none;
+  }
 }
 
 .card__buttons {
   display: flex;
   justify-content: end;
-}
-
-.like-icon {
 }
 
 .new-list-image {
@@ -304,7 +327,7 @@ button {
 }
 
 .im-here-image {
-  filter: hue-rotate(500deg) invert(1)
+  filter: hue-rotate(500deg) invert(1);
 }
 
 .like-icon .core {
@@ -316,7 +339,6 @@ button {
   fill: var(--contour-heart-color);
   transition-delay: 0ms;
 }
-
 
 .like-icon .main-body {
   fill: var(--background-color);
@@ -388,27 +410,61 @@ button {
 }
 
 footer {
+  display: flex;
+  justify-content: center;
   margin-bottom: 103px;
 }
 
-.floppy {
-  position: relative;
-  z-index: 3;
-  mix-blend-mode: difference;
+dialog {
+  text-align: left;
+  background-color: var(--background-color);
+  width: clamp(21.313rem, 20.442rem + 3.704vw, 22.063rem);
+  padding: 30px clamp(1.875rem, 3.495rem + -3.704vw, 2.625rem);
 }
 
 dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(7px);
+  background: rgba(0, 0, 0, 0.75);
 }
 
-/*dialog:after {*/
-/*  content: "";*/
-/*  position: fixed;*/
-/*  z-index: 2;*/
-/*  top: 0;*/
-/*  bottom: 0;*/
-/*  left: 0;*/
-/*  right: 0;*/
-/*  background-color: rgba(0, 0, 0, 0.75);*/
-/*}*/
+.dialog-open-button {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+  gap: 9px;
+}
+
+.form-style {
+  display: flex;
+  flex-direction: column;
+  color: var(--main-text-color);
+  background-color: var(--background-color);
+  font-family: var(--second-font-family);
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  text-transform: uppercase;
+  gap: 29px;
+}
+
+.form-floppy {
+  flex-shrink: 0;
+}
+
+.modal-flex-box {
+  gap: 18px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 375px) {
+  .dialog-open-button {
+    flex-direction: column;
+  }
+  .floppy {
+    width: 28px;
+    height: 28px;
+  }
+}
+

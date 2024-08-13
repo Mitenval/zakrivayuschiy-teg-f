@@ -6,8 +6,8 @@
     --card-text-font-weight: 400;
     --site-width: 1440;
     --main-text-color: #000000;
-    --watermark-color: rgba(0, 0, 0, 0.5);
-    --watermark-stroke-color: rgba(255, 255, 255, 0.5);
+    --watermark-color: rgba(0, 0, 0);
+    --watermark-stroke-color: var(--background-color);;
     --background-color: #ffffff;
     --disabled-button-color: rgba(0, 0, 0, 0.6);
     --background-gradient-line-color: #d3d3d3;
@@ -17,4 +17,5 @@
     --button-background-color: #ffffff;
     --contour-heart-color: var(--main-text-color);
     --main-heart-color: #FF0000;
+    --color-backdrop: rgba(0, 0, 0, 0.75);
 }
