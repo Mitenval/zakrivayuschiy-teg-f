@@ -12,10 +12,74 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
 @keyframes arrow {
-    from {
-        left: -20px;
-    }
-    to {
-        left: -16px;
-    }
+  from {
+    left: -20px;
+  }
+  to {
+    left: -16px;
+  }
+}
+
+@keyframes new-list-filter-animation {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(180deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes ideal-filter-animation {
+  0% {
+    filter: blur(20px) brightness(90%);
+  }
+
+  50% {
+    filter: blur(0px) brightness(130%);
+  }
+
+  100% {
+    filter: blur(20px) brightness(90%) blur(0.5px);
+  }
+}
+
+@keyframes strategy-filter-animation {
+  0% {
+    filter: opacity(0%);
+  }
+
+  50% {
+    filter: opacity(100%);
+  }
+
+  100% {
+    filter: opacity(0%);
+  }
+}
+
+@keyframes sparks-heart-is-liked-animation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes heart-is-liked-animation {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.5;
+  }
+  100% {
+    scale: 1;
+  }
 }

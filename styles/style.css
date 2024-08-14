@@ -17,7 +17,8 @@
 .page {
   padding-top: 100px;
   color: var(--main-text-color);
-  background: repeating-linear-gradient(
+  background:
+    repeating-linear-gradient(
       to right,
       var(--background-gradient-line-color),
       var(--background-gradient-line-color) 2px,
@@ -40,10 +41,6 @@
   min-block-size: 100dvb;
 }
 
-.site-block-width {
-
-}
-
 .hidden {
   display: none;
 }
@@ -64,7 +61,7 @@ header {
   margin-bottom: 100px;
   background-color: var(--background-color);
   text-transform: uppercase;
-  font-family: var(--second-font-family);
+  font-family: var(--second-font-family), sans-serif;
 }
 
 p {
@@ -172,7 +169,7 @@ button {
 .style-button {
   position: relative;
   height: 38px;
-  font-family: var(--second-font-family);
+  font-family: var(--second-font-family), sans-serif;
   transition: box-shadow 300ms;
   background-color: var(--background-color);
   color: var(--button-background-color);
@@ -225,6 +222,7 @@ button {
   overflow: hidden;
   border-width: 2px 0;
 }
+
 .card__text-container {
   background-color: var(--background-color);
   padding: 25px;
@@ -242,7 +240,7 @@ button {
   font-size: 14px;
   line-height: 14px;
   color: var(--watermark-color);
-  font-family: var(--second-font-family);
+  font-family: var(--second-font-family), sans-serif;
   mix-blend-mode: hard-light;
   opacity: 0.5;
 }
@@ -263,20 +261,6 @@ button {
   animation: new-list-filter-animation 4s infinite;
 }
 
-@keyframes new-list-filter-animation {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-
-  50% {
-    filter: hue-rotate(180deg);
-  }
-
-  100% {
-    filter: hue-rotate(360deg);
-  }
-}
-
 .what-if-image {
   filter: sepia(70%);
 }
@@ -286,48 +270,20 @@ button {
   animation: ideal-filter-animation 5s infinite;
 }
 
-@keyframes ideal-filter-animation {
-  0% {
-    filter: blur(20px) brightness(90%);
-  }
-
-  50% {
-    filter: blur(0px) brightness(200%);
-  }
-
-  100% {
-    filter: blur(20px) brightness(90%);
-  }
-}
-
 .who-nearby-image {
-  filter: contrast(90%) hue-rotate(30deg) brightness(130%);
+  filter: contrast(90%) sepia(50%);
 }
 
 .strategy-image {
   animation: strategy-filter-animation 4s infinite;
 }
 
-@keyframes strategy-filter-animation {
-  0% {
-    filter: opacity(0%);
-  }
-
-  50% {
-    filter: opacity(100%);
-  }
-
-  100% {
-    filter: opacity(0%);
-  }
-}
-
 .lower-hands-image {
-  filter: grayscale(100%);
+  filter: grayscale(80%);
 }
 
 .im-here-image {
-  filter: hue-rotate(500deg) invert(1);
+  filter: saturate(140%) sepia(20%);
 }
 
 .like-icon .core {
@@ -360,6 +316,7 @@ button {
 .like-icon.is-liked .contour {
   fill: var(--main-heart-color);
 }
+
 .like-icon.is-liked .core {
   transition-delay: 0ms;
 }
@@ -377,32 +334,10 @@ button {
   animation-delay: 300ms;
 }
 
-@keyframes sparks-heart-is-liked-animation {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 100%;
-  }
-}
-
 .like-icon.is-liked .heart {
   animation: heart-is-liked-animation 300ms ease-in;
   animation-delay: 100ms;
   transform-origin: center center;
-}
-
-@keyframes heart-is-liked-animation {
-  0% {
-    scale: 1;
-  }
-  50% {
-    scale: 1.5;
-  }
-  100% {
-    scale: 1;
-  }
 }
 
 .sparks {
@@ -440,7 +375,7 @@ dialog::backdrop {
   flex-direction: column;
   color: var(--main-text-color);
   background-color: var(--background-color);
-  font-family: var(--second-font-family);
+  font-family: var(--second-font-family), sans-serif;
   font-size: 14px;
   line-height: 21px;
   font-weight: 400;
@@ -452,19 +387,19 @@ dialog::backdrop {
   flex-shrink: 0;
 }
 
+.floppy {
+  width: 28px;
+  height: 28px;
+}
+
 .modal-flex-box {
   gap: 18px;
   display: flex;
   align-items: center;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (width <= 375px) {
   .dialog-open-button {
     flex-direction: column;
   }
-  .floppy {
-    width: 28px;
-    height: 28px;
-  }
 }
-
