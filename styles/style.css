@@ -39,6 +39,10 @@
       )
       fixed;
   min-block-size: 100dvb;
+  font-variation-settings:
+    "wght" 400,
+    "wdth" 100,
+    "opsz" 0;
 }
 
 .hidden {

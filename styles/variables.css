@@ -2,6 +2,7 @@
 :root {
   --main-font-family: Inter-Variable;
   --second-font-family: PressStart2P-Regular;
+  --main-font-weight: 400 785;
   --card-header-font-weight: 700;
   --card-text-font-weight: 400;
   --site-width: 1440;
