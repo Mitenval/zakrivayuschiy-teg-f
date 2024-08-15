@@ -158,10 +158,6 @@ button {
   border: 2px solid var(--border-color);
 }
 
-.card__label {
-  z-index: 1;
-}
-
 .card {
   margin-bottom: 48px;
 }
@@ -235,6 +231,7 @@ button {
 .card__label {
   position: absolute;
   text-transform: uppercase;
+  z-index: 1;
   top: 25px;
   right: 25px;
   font-size: 14px;
