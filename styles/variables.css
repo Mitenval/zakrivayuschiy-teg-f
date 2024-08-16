@@ -5,7 +5,7 @@
   --main-font-weight: 400 785;
   --card-header-font-weight: 700;
   --card-text-font-weight: 400;
-  --site-width: 1440;
+  --site-width: 700px;
   --main-text-color: #000000;
   --watermark-color: rgba(0, 0, 0);
   --watermark-stroke-color: var(--background-color);

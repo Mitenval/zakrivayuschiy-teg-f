@@ -9,12 +9,6 @@
   font-display: swap;
 }
 
-@supports (font-variation-settings: normal) {
-  body {
-    font-family: Inter-Variable, sans-serif;
-  }
-}
-
 @font-face {
   font-family: "PressStart2P-Regular";
   src: url("./PressStart2P-Regular.woff") format("woff");

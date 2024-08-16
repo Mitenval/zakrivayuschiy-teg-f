@@ -33,6 +33,10 @@ a {
   color: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
 button,
 input {
   color: currentColor;

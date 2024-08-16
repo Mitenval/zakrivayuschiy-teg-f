@@ -14,6 +14,12 @@
 
 */
 
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: Inter-Variable, sans-serif;
+  }
+}
+
 .page {
   padding-top: 100px;
   color: var(--main-text-color);
@@ -39,10 +45,7 @@
       )
       fixed;
   min-block-size: 100dvb;
-  font-variation-settings:
-    "wght" 400,
-    "wdth" 100,
-    "opsz" 0;
+  font-variation-settings: "wght" var(--card-text-font-weight);
 }
 
 .hidden {
@@ -50,14 +53,12 @@
 }
 
 header,
-footer {
+.save-button {
   text-align: center;
 }
 
 header,
-main,
-footer {
-  width: var(--site-width);
+main {
   margin: 0 auto;
 }
 
@@ -68,29 +69,31 @@ header {
   font-family: var(--second-font-family), sans-serif;
 }
 
-p {
+.card__text {
   font-weight: var(--card-text-font-weight);
   font-size: 18px;
   line-height: 21px;
   margin-bottom: 27px;
 }
 
-p:last-of-type {
+.card__text:last-of-type {
   margin-bottom: 25px;
 }
 
-h1 {
-  margin-top: clamp(7rem, 5.332rem + 7.099vw, 8.438rem);
+.main-header-text {
+  margin-top: clamp(0.188rem, -0.317rem + 2.154vi, 0.625rem);
   line-height: clamp(2.063rem, 1.337rem + 3.086vw, 2.688rem);
   font-size: clamp(0.875rem, 0.2222rem + 2.7778vw, 1.4375rem);
 }
 
-.large {
+.logo {
+  display: block;
+  margin-top: clamp(7rem, 5.332rem + 7.099vw, 8.438rem);
   font-size: clamp(3.0625rem, 1.9087rem + 4.9231vw, 4.0625rem);
   line-height: 65px;
 }
 
-nav {
+.header__theme-menu {
   display: flex;
   text-align: left;
   padding-left: 19px;
@@ -98,11 +101,11 @@ nav {
   width: 104px;
 }
 
-li {
+.theme-menu__item {
   margin-bottom: 12px;
 }
 
-button {
+.button {
   font-size: 14px;
   line-height: 14px;
   background-color: transparent;
@@ -198,6 +201,10 @@ button {
   transform: scaleX(1);
 }
 
+.card__icon-button:focus-visible {
+  outline: none;
+}
+
 .card__like-button {
   width: 130px;
 }
@@ -210,7 +217,7 @@ button {
 
 .card__title {
   padding: 5px 10px 4px;
-  font-weight: var(--card-header-font-weight);
+  font-variation-settings: "wght" var(--card-header-font-weight);
   font-size: 18px;
   line-height: 22px;
   background-color: var(--background-color);
@@ -242,13 +249,20 @@ button {
   line-height: 14px;
   color: var(--watermark-color);
   font-family: var(--second-font-family), sans-serif;
+  text-shadow:
+    1px 1px var(--watermark-stroke-color),
+    -1px -1px var(--watermark-stroke-color),
+    1px -1px var(--watermark-stroke-color),
+    -1px 1px var(--watermark-stroke-color);
   mix-blend-mode: hard-light;
   opacity: 0.5;
 }
 
-@supports (-webkit-text-stroke: 1px var(--watermark-stroke-color)) {
+@supports (-webkit-text-stroke: 1px var(--watermark-stroke-color)) OR
+  (text-stroke: 1px var(--watermark-stroke-color)) {
   .card__label {
     -webkit-text-stroke: 1px var(--watermark-stroke-color);
+    text-stroke: 1px var(--watermark-stroke-color);
     text-shadow: none;
   }
 }
@@ -258,32 +272,32 @@ button {
   justify-content: end;
 }
 
-.new-list-image {
+.hue-rotate-animation {
   animation: new-list-filter-animation 4s infinite;
 }
 
-.what-if-image {
+.sepia-filter {
   filter: sepia(70%);
 }
 
-.ideal-image {
+.blur-brightness-animation {
   filter: brightness(90%);
   animation: ideal-filter-animation 5s infinite;
 }
 
-.who-nearby-image {
+.contrast-sepia-filter {
   filter: contrast(90%) sepia(50%);
 }
 
-.strategy-image {
+.opasity-animation {
   animation: strategy-filter-animation 4s infinite;
 }
 
-.lower-hands-image {
+.grayscale-filter {
   filter: grayscale(80%);
 }
 
-.im-here-image {
+.saturate-sepia-filter {
   filter: saturate(140%) sepia(20%);
 }
 
@@ -345,13 +359,14 @@ button {
   opacity: 0;
 }
 
-footer {
+.save-button {
   display: flex;
   justify-content: center;
   margin-bottom: 103px;
 }
 
-dialog {
+dialog[open] {
+  max-width: none;
   text-align: left;
   background-color: var(--background-color);
   width: clamp(21.313rem, 20.442rem + 3.704vw, 22.063rem);
@@ -389,8 +404,8 @@ dialog::backdrop {
 }
 
 .floppy {
-  width: 28px;
-  height: 28px;
+  width: 21px;
+  height: 21px;
 }
 
 .modal-flex-box {
@@ -402,5 +417,9 @@ dialog::backdrop {
 @media screen and (width <= 375px) {
   .dialog-open-button {
     flex-direction: column;
+  }
+  .floppy {
+    width: 28px;
+    height: 28px;
   }
 }
